@@ -1,0 +1,11 @@
+services:
+  google-news-scraper:
+    build: .
+    restart: unless-stopped
+    shm_size: "1gb"
+    ports:
+      - "8000:8000"
+    environment:
+      - PORT=8000
+      # Optional — Google News does not rate-limit a home IP, so leave this unset.
+      # - GOOGLE_NEWS_PROXY=http://user:pass@host:port
